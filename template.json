@@ -4,8 +4,7 @@
     "vcs": true
   },
   "variables": {
-    "atlas_username": "{{env `ATLAS_USERNAME`}}",
-    "atlas_name": "{{env `ATLAS_NAME`}}"
+    "atlas_token": "{{env `ATLAS_TOKEN`}}"
   },
   "provisioners": [
     {
@@ -57,18 +56,16 @@
     }
   ],
   "post-processors": [
-    [
-      {
+    [{
         "type": "vagrant",
         "keep_input_artifact": false
       },
       {
         "type": "atlas",
-        "only": [
-          "vmware-iso"
-        ],
-        "artifact": "{{user `atlas_username`}}/{{user `atlas_name`}}",
+        "only": ["vmware-iso"],
+        "token": "{{user `atlas_token`}}",
         "artifact_type": "vagrant.box",
+        "artifact": "networkop/network-ci",
         "metadata": {
           "provider": "vmware_desktop",
           "version": "0.0.1"
