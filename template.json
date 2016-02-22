@@ -16,7 +16,9 @@
         "scripts/vagrant.sh",
         "scripts/dep.sh",
         "scripts/cleanup.sh",
-        "scripts/zerodisk.sh"
+        "scripts/zerodisk.sh",
+        "scripts/unetlab.sh",
+        "scripts/jenkins.sh"
       ],
       "override": {
         "vmware-iso": {
